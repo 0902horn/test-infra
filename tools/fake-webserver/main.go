@@ -43,7 +43,7 @@ var (
 		"Allow gzip compression of metrics.",
 	)
 	enableOpenMetrics = flag.Bool(
-		"eanble-open-metrics", false,
+		"enable-open-metrics", false,
 		"Opt into OpenMetrics to support exemplars.",
 	)
 
