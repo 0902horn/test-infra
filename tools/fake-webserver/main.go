@@ -42,6 +42,10 @@ var (
 		"allow-metrics-compression", true,
 		"Allow gzip compression of metrics.",
 	)
+	enableOpenMetrics = = flag.Bool(
+		"eanble-open-metrics", false,
+		"Opt into OpenMetrics to support exemplars.",
+	)
 
 	start = time.Now()
 )
@@ -67,6 +71,8 @@ func main() {
 			registry,
 			promhttp.HandlerOpts{
 				DisableCompression: !*allowCompression,
+				// Opt into OpenMetrics to support exemplars.
+				EnableOpenMetrics: *enableOpenMetrics,
 			},
 		))
 		go func(i int) {
